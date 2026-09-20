@@ -189,11 +189,11 @@ const translations = {
 // URL or "embed" for a Google Drive /preview, YouTube, or Vimeo embed URL.
 const VIDEO_SOURCES = {
   thesis: {
-    src: "https://drive.google.com/file/d/1AwOH3FfMV2uhlGQIOxQC1qmVjjoajBh8/preview",
+    src: "https://www.youtube-nocookie.com/embed/gAeV65iuUiE?rel=0",
     type: "embed",
   },
   competition: {
-    src: "https://drive.google.com/file/d/1wEQ_5xwgUciVZ7oQHVvp4pwSjGfFldhA/preview",
+    src: "https://www.youtube-nocookie.com/embed/k4dPoZiRFm4?rel=0",
     type: "embed",
   },
 };
@@ -211,7 +211,8 @@ function enhanceVideoCards() {
       iframe.src = source.src;
       iframe.title = title;
       iframe.loading = "lazy";
-      iframe.allow = "autoplay; fullscreen; picture-in-picture";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
       iframe.allowFullscreen = true;
       stage.replaceChildren(iframe);
     } else {
